@@ -45,14 +45,15 @@ class _SelectedImagesState extends State<SelectedImages> {
         pdf.addPage(
           //inserting new code
           pw.Page(
-              pageFormat: PdfPageFormat.a4,
-              build: (pw.Context context) {
-                return pw.Center(
-                    child: pw.Image(
-                  pdfImage,
-                  fit: pw.BoxFit.contain,
-                ));
-          },),
+            pageFormat: PdfPageFormat.a4,
+            build: (pw.Context context) {
+              return pw.Center(
+                  child: pw.Image(
+                pdfImage,
+                fit: pw.BoxFit.contain,
+              ));
+            },
+          ),
         );
       }
 
@@ -73,7 +74,13 @@ class _SelectedImagesState extends State<SelectedImages> {
       convertedImage = 0;
       progressValue = 0;
     });
+    ScaffoldMessenger.of(context).showSnackBar(
 
+      SnackBar(
+        content: Text(" ✅ PDF '$outputFile' saved successfully!")),
+    );
+
+    Navigator.pop(context);
   }
 
   @override
