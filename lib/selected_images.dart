@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:external_path/external_path.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:pdf/pdf.dart';
 import 'package:pdf_reader/image_list.dart';
 import 'package:media_scanner/media_scanner.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -28,6 +29,10 @@ class _SelectedImagesState extends State<SelectedImages> {
 
     final pathToSave = await ExternalPath.getExternalStoragePublicDirectory(
         ExternalPath.DIRECTORY_DOCUMENTS);
+    final directory = Directory(pathToSave);
+    if (!directory.existsSync()) {
+      directory.createSync(recursive: true);
+    }
 
     final pdf = pw.Document();
 
@@ -38,10 +43,16 @@ class _SelectedImagesState extends State<SelectedImages> {
       if (image != null) {
         final pdfImage = pw.MemoryImage(imageBytes);
         pdf.addPage(
-          //inserting new code 
-          pw.Page(build: (pw.Context context) {
-            return pw.Center(child: pw.Image(pdfImage));
-          }),
+          //inserting new code
+          pw.Page(
+              pageFormat: PdfPageFormat.a4,
+              build: (pw.Context context) {
+                return pw.Center(
+                    child: pw.Image(
+                  pdfImage,
+                  fit: pw.BoxFit.contain,
+                ));
+          },),
         );
       }
 
@@ -50,11 +61,19 @@ class _SelectedImagesState extends State<SelectedImages> {
         progressValue = convertedImage / imagesList.imagePaths.length;
       });
     }
+    final timestamp = DateTime.now().millisecondsSinceEpoch;
 
-    final outputFile = File('$pathToSave/NewPdf.pdf');
+    final outputFile = File('$pathToSave/MyPDF_$timestamp.pdf');
     await outputFile.writeAsBytes(await pdf.save());
 
     MediaScanner.loadMedia(path: outputFile.path);
+    // reset the ui state after conversion
+    setState(() {
+      isExporting = false;
+      convertedImage = 0;
+      progressValue = 0;
+    });
+
   }
 
   @override
