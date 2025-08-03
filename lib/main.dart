@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pdf_reader/HomeScreen.dart';
+import 'package:pdf_reader/Screen/HomeScreen.dart';
+import 'package:pdf_reader/main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: MainPage(),
     );
   }
 }

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:external_path/external_path.dart';
 import 'package:flutter/material.dart';
-import 'package:pdf_reader/PdfViewerScreen.dart';
+import 'package:pdf_reader/Screen/PdfViewerScreen.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path/path.dart' as path;
 
