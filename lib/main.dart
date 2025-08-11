@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pdf_reader/Screen/HomeScreen.dart';
-import 'package:pdf_reader/main_page.dart';
+import 'package:pdf_reader/Screen/main_page.dart';
 
 void main() {
   runApp(const MyApp());

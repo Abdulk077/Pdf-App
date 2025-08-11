@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:pdf_reader/image_list.dart';
-import 'package:pdf_reader/selected_images.dart';
+import 'package:pdf_reader/Utility/image_list.dart';
+import 'package:pdf_reader/Widgets/selected_images.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class MainPage extends StatefulWidget {

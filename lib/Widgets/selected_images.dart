@@ -4,7 +4,7 @@ import 'package:external_path/external_path.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:pdf/pdf.dart';
-import 'package:pdf_reader/image_list.dart';
+import 'package:pdf_reader/Utility/image_list.dart';
 import 'package:media_scanner/media_scanner.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:image/image.dart' as img;
