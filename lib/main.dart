@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pdf_reader/Screen/HomeScreen.dart';
 import 'package:pdf_reader/Screen/main_page.dart';
+import 'package:pdf_reader/bottom_navigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MainPage(),
+      home: const BottomBarScreen(),
     );
   }
 }

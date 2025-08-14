@@ -43,6 +43,8 @@ dependencies:
   path: 1.9.0
   external_path: ^2.2.0
   flutter_pdfview: ^1.4.1+1
+  camera: ^0.11.2
+  share_plus: ^11.1.0
 
 dev_dependencies:
   flutter_test:
